@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock Graph Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #617080;
+      --line: #d7dde5;
+      --soft: #f5f7fa;
+      --panel: #ffffff;
+      --accent: #176b87;
+      --gain: #18794e;
+      --loss: #b42318;
+      --mark: #9a6700;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #eef2f5;
+    }
+    button, input, select { font: inherit; }
+    button {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 6px;
+      min-height: 34px;
+      padding: 0 12px;
+      cursor: pointer;
+    }
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    button.icon {
+      width: 34px;
+      padding: 0;
+      display: inline-grid;
+      place-items: center;
+    }
+    input, select {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      min-height: 34px;
+      padding: 0 10px;
+      background: white;
+      color: var(--ink);
+    }
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+    aside {
+      background: #16232f;
+      color: white;
+      padding: 18px 14px;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 750;
+      margin: 2px 4px 18px;
+    }
+    .page-list {
+      display: grid;
+      gap: 6px;
+    }
+    .page-tab {
+      width: 100%;
+      text-align: left;
+      color: #dbe7ef;
+      background: transparent;
+      border-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page-tab.active {
+      background: #253646;
+      border-color: #3c5268;
+      color: white;
+    }
+    .sidebar-actions {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    main {
+      min-width: 0;
+      padding: 20px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .field-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+    label {
+      display: grid;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    #symbols { width: min(460px, 70vw); }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+      padding: 12px 14px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .symbol {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .company-name {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+    .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .valuation {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+    .change {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: right;
+    }
+    .change.gain { color: var(--gain); }
+    .change.loss { color: var(--loss); }
+    .chart-wrap {
+      height: 310px;
+      padding: 8px 10px 12px;
+    }
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .axis { stroke: #bdc7d1; stroke-width: 1; }
+    .gridline { stroke: #edf0f3; stroke-width: 1; }
+    .price-line { fill: none; stroke: var(--accent); stroke-width: 2.2; }
+    .marker-line { stroke: var(--mark); stroke-width: 1.4; stroke-dasharray: 3 4; }
+    .marker-dot { fill: var(--mark); stroke: white; stroke-width: 2; }
+    .tick, .note { fill: var(--muted); font-size: 11px; }
+    .marker-label { fill: var(--mark); font-size: 11px; font-weight: 750; }
+    .empty, .error {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      color: var(--muted);
+    }
+    .error { color: var(--loss); border-color: #f0b8b2; background: #fff7f5; }
+    dialog {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0;
+      width: min(440px, calc(100vw - 24px));
+    }
+    dialog::backdrop { background: rgba(20, 30, 40, .35); }
+    .dialog-body {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+    .dialog-actions {
+      display: flex;
+      justify-content: end;
+      gap: 8px;
+      padding: 12px 16px;
+      border-top: 1px solid var(--line);
+    }
+    @media (max-width: 780px) {
+      .app { grid-template-columns: 1fr; }
+      aside { position: static; }
+      main { padding: 14px; }
+      #symbols { width: 100%; }
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      aside, .toolbar { display: none; }
+      body { background: white; }
+      .app { display: block; }
+      main { padding: 0; }
+      .card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="brand">Stock Graph Dashboard</div>
+      <div class="page-list" id="pageList"></div>
+      <div class="sidebar-actions">
+        <button id="newPage">New page</button>
+        <button id="renamePage">Rename page</button>
+        <button id="deletePage">Delete page</button>
+      </div>
+    </aside>
+    <main>
+      <div class="toolbar">
+        <div class="field-row">
+          <label>
+            Tickers
+            <input id="symbols" value="AAPL, MSFT, NVDA" spellcheck="false">
+          </label>
+          <label>
+            History
+            <select id="years">
+              <option value="1">1 year</option>
+              <option value="3">3 years</option>
+              <option value="5" selected>5 years</option>
+              <option value="10">10 years</option>
+              <option value="20">20 years</option>
+            </select>
+          </label>
+          <label>
+            Double markers
+            <select id="markerMode">
+              <option value="start" selected>From first visible price</option>
+              <option value="rolling">From trailing lows</option>
+            </select>
+          </label>
+          <button class="primary" id="load">Refresh</button>
+        </div>
+        <div class="field-row">
+          <button id="savePage">Save page</button>
+          <button id="printPage" title="Print or save as PDF">Print</button>
+        </div>
+      </div>
+      <div class="meta" id="meta"></div>
+      <div id="errors"></div>
+      <div class="grid" id="charts"></div>
+    </main>
+  </div>
+
+  <dialog id="pageDialog">
+    <form method="dialog">
+      <div class="dialog-body">
+        <label>
+          Page name
+          <input id="pageName" required>
+        </label>
+      </div>
+      <div class="dialog-actions">
+        <button value="cancel">Cancel</button>
+        <button class="primary" id="confirmPage" value="default">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    const storeKey = "stock-dashboard-pages-v1";
+    const isLocalServer = ["localhost", "127.0.0.1", "::1"].includes(location.hostname);
+    const categoryPages = [
+      { name: "Watchlist", symbols: ["AAPL", "MSFT", "NVDA"] },
+      { name: "Indexes", symbols: ["SPY", "QQQ", "DIA"] },
+      {
+        name: "Memory/storage",
+        symbols: ["MU", "SNDK", "WDC"],
+        note: "Also track: Samsung Electronics, SK hynix, and Kioxia. Their Korean/Japanese/OTC listings are not chartable through this Nasdaq endpoint."
+      },
+      {
+        name: "AI accelerators",
+        symbols: ["NVDA", "AMD"],
+        note: "Also track: Cerebras, Groq, Tenstorrent, and SambaNova. They are private companies, so there are no public stock charts here."
+      },
+      {
+        name: "EDA/software",
+        symbols: ["SNPS", "CDNS"],
+        note: "Also track: Siemens EDA and Ansys. Siemens EDA is part of Siemens; ANSS did not return chart data from this endpoint."
+      },
+      {
+        name: "Semiconductor equipment",
+        symbols: ["ASML", "AMAT", "LRCX", "KLAC"],
+        note: "Also track: Tokyo Electron. Its Nasdaq-accessible OTC symbol did not return chart data from this endpoint."
+      },
+      { name: "Metrology/instrumentation", symbols: ["KLAC", "ONTO", "BRKR", "TMO", "NVMI"] },
+      {
+        name: "Advanced packaging",
+        symbols: ["AMKR", "ASX", "TSM", "INTC"],
+        note: "Also track: Samsung Foundry. Samsung is not chartable through this Nasdaq endpoint."
+      },
+      {
+        name: "AI infra/neoclouds",
+        symbols: ["CRWV"],
+        note: "Also track: Lambda, Crusoe, and SF Compute-type companies. They are private, so there are no public stock charts here."
+      },
+      {
+        name: "Research/market intelligence",
+        symbols: ["IT"],
+        note: "Also track: SemiAnalysis, TechInsights, Yole Group, and IDC. Gartner is public; the others are private or not standalone public tickers."
+      }
+    ];
+    const defaultPages = categoryPages.map(page => ({
+      id: crypto.randomUUID(),
+      name: page.name,
+      symbols: page.symbols.join(", "),
+      years: "5",
+      markerMode: "start",
+      note: page.note || ""
+    }));
+    const companyNames = {
+      AAPL: "Apple Inc.",
+      AMD: "Advanced Micro Devices, Inc.",
+      AMAT: "Applied Materials, Inc.",
+      AMKR: "Amkor Technology, Inc.",
+      ASML: "ASML Holding N.V.",
+      ASX: "ASE Technology Holding Co., Ltd.",
+      AVGO: "Broadcom Inc.",
+      BRKR: "Bruker Corporation",
+      CDNS: "Cadence Design Systems, Inc.",
+      CRWV: "CoreWeave, Inc.",
+      DIA: "SPDR Dow Jones Industrial Average ETF Trust",
+      INTC: "Intel Corporation",
+      IT: "Gartner, Inc.",
+      KLAC: "KLA Corporation",
+      LRCX: "Lam Research Corporation",
+      MRVL: "Marvell Technology, Inc.",
+      MU: "Micron Technology, Inc.",
+      MSFT: "Microsoft Corporation",
+      NVMI: "Nova Ltd.",
+      NVDA: "NVIDIA Corporation",
+      ONTO: "Onto Innovation Inc.",
+      QQQ: "Invesco QQQ Trust",
+      SNDK: "SanDisk Corporation",
+      SPY: "SPDR S&P 500 ETF Trust",
+      SNPS: "Synopsys, Inc.",
+      TMO: "Thermo Fisher Scientific Inc.",
+      TSM: "Taiwan Semiconductor Manufacturing Company Limited",
+      WDC: "Western Digital Corporation"
+    };
+    let pages = loadPages();
+    let activeId = pages[0].id;
+    const els = {
+      pageList: document.querySelector("#pageList"),
+      symbols: document.querySelector("#symbols"),
+      years: document.querySelector("#years"),
+      markerMode: document.querySelector("#markerMode"),
+      load: document.querySelector("#load"),
+      charts: document.querySelector("#charts"),
+      meta: document.querySelector("#meta"),
+      errors: document.querySelector("#errors"),
+      newPage: document.querySelector("#newPage"),
+      renamePage: document.querySelector("#renamePage"),
+      deletePage: document.querySelector("#deletePage"),
+      savePage: document.querySelector("#savePage"),
+      printPage: document.querySelector("#printPage"),
+      pageDialog: document.querySelector("#pageDialog"),
+      pageName: document.querySelector("#pageName")
+    };
+
+    function loadPages() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(storeKey));
+        if (!Array.isArray(parsed) || !parsed.length) return defaultPages;
+        const names = new Set(parsed.map(page => page.name));
+        const missingDefaults = defaultPages.filter(page => !names.has(page.name));
+        return [...mergeCategoryPages(parsed), ...missingDefaults];
+      } catch {
+        return defaultPages;
+      }
+    }
+
+    function mergeCategoryPages(savedPages) {
+      return savedPages.map(page => {
+        const category = categoryPages.find(item => item.name === page.name);
+        if (!category) return page;
+        const existing = page.symbols.split(",").map(symbol => symbol.trim().toUpperCase()).filter(Boolean);
+        const merged = [...existing];
+        for (const symbol of category.symbols) {
+          if (!merged.includes(symbol)) merged.push(symbol);
+        }
+        return { ...page, symbols: merged.join(", "), note: category.note || page.note || "" };
+      });
+    }
+
+    function persistPages() {
+      localStorage.setItem(storeKey, JSON.stringify(pages));
+    }
+
+    function activePage() {
+      return pages.find(page => page.id === activeId) || pages[0];
+    }
+
+    function syncFormFromPage() {
+      const page = activePage();
+      activeId = page.id;
+      els.symbols.value = page.symbols;
+      els.years.value = page.years;
+      els.markerMode.value = page.markerMode || "start";
+    }
+
+    function saveFormToPage() {
+      const page = activePage();
+      page.symbols = els.symbols.value;
+      page.years = els.years.value;
+      page.markerMode = els.markerMode.value;
+      persistPages();
+      renderPages();
+    }
+
+    function renderPages() {
+      els.pageList.innerHTML = "";
+      for (const page of pages) {
+        const button = document.createElement("button");
+        button.className = `page-tab ${page.id === activeId ? "active" : ""}`;
+        button.innerHTML = `<span>${escapeHtml(page.name)}</span><span>${escapeHtml(page.years)}y</span>`;
+        button.addEventListener("click", () => {
+          activeId = page.id;
+          syncFormFromPage();
+          renderPages();
+          refresh();
+        });
+        els.pageList.append(button);
+      }
+    }
+
+    async function refresh() {
+      saveFormToPage();
+      const symbols = els.symbols.value.split(",").map(s => s.trim()).filter(Boolean);
+      if (!symbols.length) {
+        els.charts.innerHTML = `<div class="empty">Add one or more ticker symbols.</div>`;
+        return;
+      }
+      els.errors.innerHTML = "";
+      els.charts.innerHTML = `<div class="empty">Loading ${escapeHtml(symbols.join(", "))}...</div>`;
+      els.meta.textContent = "";
+      try {
+        const payload = isLocalServer ? await fetchLivePayload(symbols) : await fetchStaticPayload(symbols);
+        renderErrors(payload.errors || []);
+        if (!payload.results?.length) throw new Error(payload.errors?.[0]?.message || "No data returned");
+        renderCharts(payload.results || []);
+      } catch (error) {
+        els.charts.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+      }
+    }
+
+    async function fetchLivePayload(symbols) {
+      const url = `/api/history?symbols=${encodeURIComponent(symbols.join(","))}&years=${encodeURIComponent(els.years.value)}`;
+      const response = await fetch(url);
+      const payload = await response.json();
+      if (!response.ok && !payload.results?.length) throw new Error(payload.errors?.[0]?.message || "No data returned");
+      return payload;
+    }
+
+    async function fetchStaticPayload(symbols) {
+      const payload = { results: [], errors: [] };
+      const order = new Map(symbols.map((symbol, index) => [symbol.trim().toUpperCase(), index]));
+      await Promise.all(symbols.map(async symbol => {
+        const clean = symbol.trim().toUpperCase();
+        try {
+          const response = await fetch(`data/history/${encodeURIComponent(clean)}-${encodeURIComponent(els.years.value)}y.json`, { cache: "no-store" });
+          if (!response.ok) throw new Error("No static data file");
+          payload.results.push(await response.json());
+        } catch {
+          payload.errors.push({
+            symbol: clean,
+            message: "No prebuilt GitHub Pages data for this symbol. Add it to a saved category and regenerate static data."
+          });
+        }
+      }));
+      payload.results.sort((a, b) => (order.get(a.symbol) ?? 999) - (order.get(b.symbol) ?? 999));
+      return payload;
+    }
+
+    function renderErrors(errors) {
+      els.errors.innerHTML = errors.map(error => (
+        `<div class="error">${escapeHtml(error.symbol)}: ${escapeHtml(error.message)}</div>`
+      )).join("");
+    }
+
+    function renderCharts(results) {
+      els.charts.innerHTML = "";
+      if (!results.length) {
+        els.charts.innerHTML = `<div class="empty">No chart data found.</div>`;
+        return;
+      }
+      const retrievedAt = new Date(results[0].retrievedAt).toLocaleString();
+      els.meta.textContent = `${results.length} chart${results.length === 1 ? "" : "s"} | ${els.years.value} year history | Data source: ${results[0].source} | Retrieved ${retrievedAt}`;
+      if (activePage().note) {
+        els.meta.textContent += ` | ${activePage().note}`;
+      }
+      for (const result of results) {
+        els.charts.append(renderCard(result));
+      }
+    }
+
+    function renderCard(result) {
+      const prices = result.prices.filter(point => Number.isFinite(point.close));
+      const first = prices[0];
+      const last = prices[prices.length - 1];
+      const change = ((last.close - first.close) / first.close) * 100;
+      const markers = els.markerMode.value === "rolling" ? rollingDoubleMarkers(prices) : startDoubleMarkers(prices);
+      const valuation = valuationText(result, first.close, last.close);
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-head">
+          <div>
+            <div class="symbol">${escapeHtml(result.symbol)}</div>
+            <div class="company-name">${escapeHtml(companyNames[result.symbol] || "Company name not saved")}</div>
+            <div class="stats">
+              <span>${escapeHtml(first.date)} to ${escapeHtml(last.date)}</span>
+              <span>Start $${formatPrice(first.close)}</span>
+              <span>Last $${formatPrice(last.close)}</span>
+              <span>${markers.length} double marker${markers.length === 1 ? "" : "s"}</span>
+            </div>
+            <div class="valuation">${escapeHtml(valuation)}</div>
+          </div>
+          <div class="change ${change >= 0 ? "gain" : "loss"}">${change >= 0 ? "+" : ""}${change.toFixed(1)}%</div>
+        </div>
+        <div class="chart-wrap">${chartSvg(prices, markers)}</div>
+      `;
+      return card;
+    }
+
+    function valuationText(result, startPrice, lastPrice) {
+      const fundamentals = result.fundamentals;
+      if (!fundamentals?.marketCap || !fundamentals?.revenue || !lastPrice) {
+        return "MCap/Revenue est.: N/A";
+      }
+      const sharesOutstandingEstimate = fundamentals.marketCap / lastPrice;
+      const startMultiple = (startPrice * sharesOutstandingEstimate) / fundamentals.revenue;
+      const lastMultiple = (lastPrice * sharesOutstandingEstimate) / fundamentals.revenue;
+      const period = fundamentals.revenuePeriod ? `, revenue period ${fundamentals.revenuePeriod}` : "";
+      return `MCap/Revenue est.: ${startMultiple.toFixed(1)}x start -> ${lastMultiple.toFixed(1)}x last${period}`;
+    }
+
+    function startDoubleMarkers(prices) {
+      const base = prices[0].close;
+      const markers = [];
+      let multiple = 2;
+      for (const point of prices) {
+        while (point.close >= base * multiple) {
+          markers.push({ ...point, label: `${multiple}x` });
+          multiple *= 2;
+        }
+      }
+      return markers;
+    }
+
+    function rollingDoubleMarkers(prices) {
+      const markers = [];
+      let low = prices[0].close;
+      let nextDouble = low * 2;
+      for (const point of prices) {
+        if (point.close < low) {
+          low = point.close;
+          nextDouble = low * 2;
+        }
+        if (point.close >= nextDouble) {
+          markers.push({ ...point, label: "2x from low" });
+          low = point.close;
+          nextDouble = low * 2;
+        }
+      }
+      return markers;
+    }
+
+    function chartSvg(prices, markers) {
+      const width = 720;
+      const height = 300;
+      const pad = { top: 18, right: 54, bottom: 34, left: 54 };
+      const xs = indexScale(prices.length, pad.left, width - pad.right);
+      const closes = prices.map(point => point.close);
+      const min = Math.min(...closes);
+      const max = Math.max(...closes);
+      const span = max - min || max || 1;
+      const yMin = Math.max(0, min - span * 0.08);
+      const yMax = max + span * 0.08;
+      const y = value => height - pad.bottom - ((value - yMin) / (yMax - yMin || 1)) * (height - pad.top - pad.bottom);
+      const path = prices.map((point, index) => `${index ? "L" : "M"}${xs(index).toFixed(1)},${y(point.close).toFixed(1)}`).join(" ");
+      const yTicks = tickValues(yMin, yMax, 5);
+      const xTicks = dateTicks(prices, 5);
+      const markerByDate = new Map(markers.map(marker => [marker.date, marker]));
+      const markerShapes = prices.flatMap((point, index) => {
+        const marker = markerByDate.get(point.date);
+        if (!marker) return [];
+        const x = xs(index);
+        const cy = y(point.close);
+        return [
+          `<line class="marker-line" x1="${x}" y1="${pad.top}" x2="${x}" y2="${height - pad.bottom}"></line>`,
+          `<circle class="marker-dot" cx="${x}" cy="${cy}" r="5"></circle>`,
+          `<text class="marker-label" x="${Math.min(x + 7, width - 70)}" y="${Math.max(cy - 8, 13)}">${escapeHtml(marker.label)}</text>`
+        ];
+      }).join("");
+      return `
+        <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Price chart">
+          ${yTicks.map(tick => `<line class="gridline" x1="${pad.left}" x2="${width - pad.right}" y1="${y(tick)}" y2="${y(tick)}"></line><text class="tick" x="8" y="${y(tick) + 4}">$${formatCompact(tick)}</text>`).join("")}
+          ${xTicks.map(tick => `<text class="tick" x="${xs(tick.index) - 24}" y="${height - 10}">${escapeHtml(tick.label)}</text>`).join("")}
+          <line class="axis" x1="${pad.left}" x2="${width - pad.right}" y1="${height - pad.bottom}" y2="${height - pad.bottom}"></line>
+          <line class="axis" x1="${pad.left}" x2="${pad.left}" y1="${pad.top}" y2="${height - pad.bottom}"></line>
+          <path class="price-line" d="${path}"></path>
+          ${markerShapes}
+        </svg>
+      `;
+    }
+
+    function indexScale(count, min, max) {
+      return index => count <= 1 ? min : min + (index / (count - 1)) * (max - min);
+    }
+
+    function tickValues(min, max, count) {
+      return Array.from({ length: count }, (_, index) => min + ((max - min) * index) / (count - 1));
+    }
+
+    function dateTicks(prices, count) {
+      return Array.from({ length: count }, (_, index) => {
+        const priceIndex = Math.round(((prices.length - 1) * index) / (count - 1));
+        return { index: priceIndex, label: prices[priceIndex].date.slice(0, 7) };
+      });
+    }
+
+    function formatPrice(value) {
+      return value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function formatCompact(value) {
+      return value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value.toFixed(value >= 10 ? 0 : 2);
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
+    }
+
+    function promptPageName(initial, onSave) {
+      els.pageName.value = initial;
+      els.pageDialog.showModal();
+      els.pageDialog.addEventListener("close", function handler() {
+        els.pageDialog.removeEventListener("close", handler);
+        if (els.pageDialog.returnValue !== "cancel" && els.pageName.value.trim()) onSave(els.pageName.value.trim());
+      });
+    }
+
+    els.load.addEventListener("click", refresh);
+    els.savePage.addEventListener("click", () => {
+      saveFormToPage();
+      els.meta.textContent = `Saved "${activePage().name}".`;
+    });
+    els.printPage.addEventListener("click", () => window.print());
+    els.newPage.addEventListener("click", () => promptPageName("New page", name => {
+      const page = { id: crypto.randomUUID(), name, symbols: els.symbols.value, years: els.years.value, markerMode: els.markerMode.value };
+      pages.push(page);
+      activeId = page.id;
+      persistPages();
+      renderPages();
+      refresh();
+    }));
+    els.renamePage.addEventListener("click", () => promptPageName(activePage().name, name => {
+      activePage().name = name;
+      persistPages();
+      renderPages();
+    }));
+    els.deletePage.addEventListener("click", () => {
+      if (pages.length === 1) return;
+      pages = pages.filter(page => page.id !== activeId);
+      activeId = pages[0].id;
+      persistPages();
+      syncFormFromPage();
+      renderPages();
+      refresh();
+    });
+
+    syncFormFromPage();
+    renderPages();
+    refresh();
+  </script>
+</body>
+</html>
