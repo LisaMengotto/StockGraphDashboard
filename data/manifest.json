@@ -8,7 +8,10 @@
     "QQQ",
     "DIA",
     "MU",
+    "SNDK",
     "WDC",
+    "AMD",
+    "SNPS",
     "CDNS",
     "ASML",
     "AMAT",
@@ -25,18 +28,5 @@
     "CRWV",
     "IT"
   ],
-  "errors": [
-    {
-      "symbol": "SNDK",
-      "message": "The read operation timed out"
-    },
-    {
-      "symbol": "AMD",
-      "message": "The read operation timed out"
-    },
-    {
-      "symbol": "SNPS",
-      "message": "The read operation timed out"
-    }
-  ]
+  "errors": []
 }
