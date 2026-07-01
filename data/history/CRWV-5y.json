@@ -3,9 +3,9 @@
   "sourceSymbol": "crwv",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-06-30T01:29:20Z",
+  "retrievedAt": "2026-07-01T01:37:07Z",
   "fundamentals": {
-    "marketCap": 52107423746.0,
+    "marketCap": 54306072241.0,
     "revenue": 5131000000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
@@ -2522,6 +2522,14 @@
       "low": 89.55,
       "close": 95.51,
       "volume": 21976920
+    },
+    {
+      "date": "2026-06-30",
+      "open": 95.18,
+      "high": 99.79,
+      "low": 93.88,
+      "close": 99.54,
+      "volume": 18789320
     }
   ]
 }
