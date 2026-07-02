@@ -3,17 +3,9 @@
   "sourceSymbol": "qqq",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-07-01T01:36:54Z",
+  "retrievedAt": "2026-07-02T01:29:12Z",
   "fundamentals": null,
   "prices": [
-    {
-      "date": "2021-06-21",
-      "open": 342.43,
-      "high": 344.69,
-      "low": 340.15,
-      "close": 344.36,
-      "volume": 32992650
-    },
     {
       "date": "2021-06-22",
       "open": 344.15,
@@ -10101,6 +10093,14 @@
       "low": 723.91,
       "close": 736.4,
       "volume": 42121830
+    },
+    {
+      "date": "2026-07-01",
+      "open": 729.19,
+      "high": 731.92,
+      "low": 724.6,
+      "close": 725.17,
+      "volume": 40803790
     }
   ]
 }
