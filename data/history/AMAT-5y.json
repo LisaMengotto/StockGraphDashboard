@@ -3,7 +3,7 @@
   "sourceSymbol": "amat",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-07-03T01:07:50Z",
+  "retrievedAt": "2026-07-04T01:05:01Z",
   "fundamentals": {
     "marketCap": 478789294667.0,
     "revenue": 28368000000.0,
@@ -11,14 +11,6 @@
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-06-23",
-      "open": 134.3,
-      "high": 136.21,
-      "low": 134.28,
-      "close": 135.5,
-      "volume": 6327397
-    },
     {
       "date": "2021-06-24",
       "open": 137.0,
