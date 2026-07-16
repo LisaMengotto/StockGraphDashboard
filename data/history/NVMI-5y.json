@@ -3,9 +3,9 @@
   "sourceSymbol": "nvmi",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-07-15T00:11:13Z",
+  "retrievedAt": "2026-07-16T00:15:36Z",
   "fundamentals": {
-    "marketCap": 14389104914.0,
+    "marketCap": 15050508561.0,
     "revenue": 880577000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
@@ -10090,6 +10090,14 @@
       "low": 448.23,
       "close": 452.73,
       "volume": 462201
+    },
+    {
+      "date": "2026-07-14",
+      "open": 488.21,
+      "high": 488.21,
+      "low": 471.34,
+      "close": 473.54,
+      "volume": 430164
     }
   ]
 }
