@@ -3,22 +3,14 @@
   "sourceSymbol": "snps",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-07-23T00:57:43Z",
+  "retrievedAt": "2026-07-24T00:53:54Z",
   "fundamentals": {
-    "marketCap": 72304507913.0,
+    "marketCap": 71521357474.0,
     "revenue": 7054178000.0,
     "revenuePeriod": "10/31/2025",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-07-13",
-      "open": 278.5,
-      "high": 279.54,
-      "low": 276.97,
-      "close": 278.09,
-      "volume": 595021
-    },
     {
       "date": "2021-07-14",
       "open": 279.72,
