@@ -3,22 +3,14 @@
   "sourceSymbol": "tmo",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-07-30T00:52:21Z",
+  "retrievedAt": "2026-07-31T00:59:59Z",
   "fundamentals": {
-    "marketCap": 214224909714.0,
+    "marketCap": 214340112368.0,
     "revenue": 44556000000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-07-20",
-      "open": 521.86,
-      "high": 529.55,
-      "low": 520.05,
-      "close": 522.58,
-      "volume": 1145422
-    },
     {
       "date": "2021-07-21",
       "open": 522.97,
@@ -10098,6 +10090,22 @@
       "low": 568.98,
       "close": 576.41,
       "volume": 3034470
+    },
+    {
+      "date": "2026-07-29",
+      "open": 578.71,
+      "high": 584.54,
+      "low": 571.2,
+      "close": 576.46,
+      "volume": 2546899
+    },
+    {
+      "date": "2026-07-30",
+      "open": 567.37,
+      "high": 577.05,
+      "low": 560.42,
+      "close": 576.77,
+      "volume": 2264793
     }
   ]
 }
