@@ -3,9 +3,9 @@
   "sourceSymbol": "amd",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:30Z",
+  "retrievedAt": "2026-08-05T00:52:27Z",
   "fundamentals": {
-    "marketCap": 790254293685.0,
+    "marketCap": 845596879373.0,
     "revenue": 34639000000.0,
     "revenuePeriod": "12/27/2025",
     "source": "Nasdaq summary and annual financials"

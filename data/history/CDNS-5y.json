@@ -3,9 +3,9 @@
   "sourceSymbol": "cdns",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:34Z",
+  "retrievedAt": "2026-08-05T00:52:29Z",
   "fundamentals": {
-    "marketCap": 92573356950.0,
+    "marketCap": 93804363660.0,
     "revenue": 5296759000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"

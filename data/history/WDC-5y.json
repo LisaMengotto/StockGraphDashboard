@@ -3,9 +3,9 @@
   "sourceSymbol": "wdc",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:29Z",
+  "retrievedAt": "2026-08-05T00:52:26Z",
   "fundamentals": {
-    "marketCap": 181723313106.0,
+    "marketCap": 189078829781.0,
     "revenue": 9520000000.0,
     "revenuePeriod": "6/27/2025",
     "source": "Nasdaq summary and annual financials"

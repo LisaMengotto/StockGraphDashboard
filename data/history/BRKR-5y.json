@@ -3,9 +3,9 @@
   "sourceSymbol": "brkr",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:36Z",
+  "retrievedAt": "2026-08-05T00:52:36Z",
   "fundamentals": {
-    "marketCap": 9967125479.0,
+    "marketCap": 7795776887.0,
     "revenue": 3436500000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"

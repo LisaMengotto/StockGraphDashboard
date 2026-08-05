@@ -3,9 +3,9 @@
   "sourceSymbol": "nvda",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:23Z",
+  "retrievedAt": "2026-08-05T00:52:20Z",
   "fundamentals": {
-    "marketCap": 5000688000000.0,
+    "marketCap": 5128948000000.0,
     "revenue": 215938000000.0,
     "revenuePeriod": "1/25/2026",
     "source": "Nasdaq summary and annual financials"

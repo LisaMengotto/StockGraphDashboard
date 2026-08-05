@@ -3,9 +3,9 @@
   "sourceSymbol": "crwv",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:40Z",
+  "retrievedAt": "2026-08-05T00:52:44Z",
   "fundamentals": {
-    "marketCap": 46788112873.0,
+    "marketCap": 50137914797.0,
     "revenue": 5131000000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"

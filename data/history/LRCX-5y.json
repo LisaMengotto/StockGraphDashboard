@@ -3,9 +3,9 @@
   "sourceSymbol": "lrcx",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:35Z",
+  "retrievedAt": "2026-08-05T00:52:32Z",
   "fundamentals": {
-    "marketCap": 368430722310.0,
+    "marketCap": 397356429540.0,
     "revenue": 18435591000.0,
     "revenuePeriod": "6/29/2025",
     "source": "Nasdaq summary and annual financials"

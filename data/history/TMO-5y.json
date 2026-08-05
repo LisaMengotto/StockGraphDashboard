@@ -3,9 +3,9 @@
   "sourceSymbol": "tmo",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:37Z",
+  "retrievedAt": "2026-08-05T00:52:37Z",
   "fundamentals": {
-    "marketCap": 213321869554.0,
+    "marketCap": 208814779769.0,
     "revenue": 44556000000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"

@@ -3,9 +3,9 @@
   "sourceSymbol": "asx",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-04T00:57:39Z",
+  "retrievedAt": "2026-08-05T00:52:41Z",
   "fundamentals": {
-    "marketCap": 81682647654.0,
+    "marketCap": 86180983212.0,
     "revenue": 20540339000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
