@@ -3,7 +3,7 @@
   "sourceSymbol": "onto",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-05T00:52:35Z",
+  "retrievedAt": "2026-08-06T00:15:00Z",
   "fundamentals": {
     "marketCap": 14306249869.0,
     "revenue": 1005263000.0,
@@ -11,14 +11,6 @@
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-07-26",
-      "open": 67.66,
-      "high": 68.21,
-      "low": 66.13,
-      "close": 66.67,
-      "volume": 159728
-    },
     {
       "date": "2021-07-27",
       "open": 65.84,
@@ -10098,6 +10090,14 @@
       "low": 245.53,
       "close": 268.49,
       "volume": 887561
+    },
+    {
+      "date": "2026-08-04",
+      "open": 282.98,
+      "high": 293.15,
+      "low": 282.17,
+      "close": 287.6,
+      "volume": 1202302
     }
   ]
 }
