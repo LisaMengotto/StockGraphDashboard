@@ -3,9 +3,9 @@
   "sourceSymbol": "klac",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-07T01:45:14Z",
+  "retrievedAt": "2026-08-07T23:54:31Z",
   "fundamentals": {
-    "marketCap": 252398496076.0,
+    "marketCap": 258786181853.0,
     "revenue": 12156162000.0,
     "revenuePeriod": "6/30/2025",
     "source": "Nasdaq summary and annual financials"

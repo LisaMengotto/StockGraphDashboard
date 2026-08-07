@@ -3,9 +3,9 @@
   "sourceSymbol": "aapl",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-07T01:45:05Z",
+  "retrievedAt": "2026-08-07T23:54:23Z",
   "fundamentals": {
-    "marketCap": 4559367773800.0,
+    "marketCap": 4572794419400.0,
     "revenue": 416161000000.0,
     "revenuePeriod": "9/27/2025",
     "source": "Nasdaq summary and annual financials"

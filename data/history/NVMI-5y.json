@@ -3,9 +3,9 @@
   "sourceSymbol": "nvmi",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-07T01:45:17Z",
+  "retrievedAt": "2026-08-07T23:54:34Z",
   "fundamentals": {
-    "marketCap": 12119482883.0,
+    "marketCap": 12491343655.0,
     "revenue": 880577000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
