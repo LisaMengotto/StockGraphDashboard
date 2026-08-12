@@ -3,7 +3,7 @@
   "sourceSymbol": "intc",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-10T23:57:00Z",
+  "retrievedAt": "2026-08-12T00:05:14Z",
   "fundamentals": {
     "marketCap": 491890880000.0,
     "revenue": 52853000000.0,
@@ -10090,6 +10090,14 @@
       "low": 98.03,
       "close": 101.65,
       "volume": 76760640
+    },
+    {
+      "date": "2026-08-10",
+      "open": 98.26,
+      "high": 100.025,
+      "low": 96.3,
+      "close": 97.52,
+      "volume": 101153400
     }
   ]
 }
