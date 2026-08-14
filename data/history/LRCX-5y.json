@@ -3,22 +3,14 @@
   "sourceSymbol": "lrcx",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-13T00:04:08Z",
+  "retrievedAt": "2026-08-14T00:04:40Z",
   "fundamentals": {
-    "marketCap": 389673872610.0,
+    "marketCap": 408068291310.0,
     "revenue": 23232690000.0,
     "revenuePeriod": "6/28/2026",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-08-03",
-      "open": 64.548,
-      "high": 64.934,
-      "low": 63.6469,
-      "close": 64.552,
-      "volume": 6843500
-    },
     {
       "date": "2021-08-04",
       "open": 64.882,
@@ -10098,6 +10090,14 @@
       "low": 309.35,
       "close": 311.41,
       "volume": 7669436
+    },
+    {
+      "date": "2026-08-12",
+      "open": 326.835,
+      "high": 329.4899,
+      "low": 323.5,
+      "close": 326.11,
+      "volume": 8075626
     }
   ]
 }
