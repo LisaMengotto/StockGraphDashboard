@@ -3,9 +3,9 @@
   "sourceSymbol": "asx",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-18T23:42:54Z",
+  "retrievedAt": "2026-08-19T23:43:04Z",
   "fundamentals": {
-    "marketCap": 81059115992.0,
+    "marketCap": 79555959308.0,
     "revenue": 20540339000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
@@ -10098,6 +10098,14 @@
       "low": 38.7,
       "close": 39.91,
       "volume": 7176165
+    },
+    {
+      "date": "2026-08-18",
+      "open": 37.04,
+      "high": 37.18,
+      "low": 35.875,
+      "close": 36.41,
+      "volume": 14752790
     }
   ]
 }
