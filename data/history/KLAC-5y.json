@@ -3,22 +3,14 @@
   "sourceSymbol": "klac",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-25T23:45:01Z",
+  "retrievedAt": "2026-08-27T04:34:55Z",
   "fundamentals": {
-    "marketCap": 239542287195.0,
+    "marketCap": 240182495119.0,
     "revenue": 13579476000.0,
     "revenuePeriod": "6/30/2026",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-08-16",
-      "open": 32.703,
-      "high": 33.154,
-      "low": 32.583,
-      "close": 32.919,
-      "volume": 10735780
-    },
     {
       "date": "2021-08-17",
       "open": 32.586,
@@ -10098,6 +10090,22 @@
       "low": 176.45,
       "close": 181.57,
       "volume": 9874765
+    },
+    {
+      "date": "2026-08-25",
+      "open": 184.58,
+      "high": 186.13,
+      "low": 180.71,
+      "close": 183.34,
+      "volume": 8899654
+    },
+    {
+      "date": "2026-08-26",
+      "open": 183.41,
+      "high": 184.26,
+      "low": 179.7,
+      "close": 183.83,
+      "volume": 5962821
     }
   ]
 }
