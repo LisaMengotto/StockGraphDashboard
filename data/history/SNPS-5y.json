@@ -3,22 +3,14 @@
   "sourceSymbol": "snps",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-08-28T06:58:24Z",
+  "retrievedAt": "2026-08-29T04:12:15Z",
   "fundamentals": {
-    "marketCap": 89016823399.0,
+    "marketCap": 84820295886.0,
     "revenue": 7054178000.0,
     "revenuePeriod": "10/31/2025",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-08-18",
-      "open": 288.95,
-      "high": 294.5,
-      "low": 288.95,
-      "close": 290.63,
-      "volume": 877112
-    },
     {
       "date": "2021-08-19",
       "open": 302.6,
@@ -10106,6 +10098,14 @@
       "low": 415.31,
       "close": 464.89,
       "volume": 4073868
+    },
+    {
+      "date": "2026-08-28",
+      "open": 461.85,
+      "high": 462.45,
+      "low": 440.6,
+      "close": 442.61,
+      "volume": 2004516
     }
   ]
 }
