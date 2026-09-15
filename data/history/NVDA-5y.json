@@ -3,30 +3,14 @@
   "sourceSymbol": "nvda",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-09-12T01:16:56Z",
+  "retrievedAt": "2026-09-15T01:36:24Z",
   "fundamentals": {
-    "marketCap": 5260789000000.0,
+    "marketCap": 5084136000000.0,
     "revenue": 215938000000.0,
     "revenuePeriod": "1/25/2026",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-09-02",
-      "open": 22.518,
-      "high": 22.593,
-      "low": 22.2945,
-      "close": 22.396,
-      "volume": 188109600
-    },
-    {
-      "date": "2021-09-03",
-      "open": 22.325,
-      "high": 22.986,
-      "low": 22.2,
-      "close": 22.843,
-      "volume": 280832000
-    },
     {
       "date": "2021-09-07",
       "open": 22.833,
@@ -10098,6 +10082,14 @@
       "low": 218.15,
       "close": 218.29,
       "volume": 89060140
+    },
+    {
+      "date": "2026-09-14",
+      "open": 211.24,
+      "high": 212.77,
+      "low": 208.93,
+      "close": 210.96,
+      "volume": 132267200
     }
   ]
 }
