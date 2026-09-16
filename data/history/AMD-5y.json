@@ -3,9 +3,9 @@
   "sourceSymbol": "amd",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-09-15T01:36:28Z",
+  "retrievedAt": "2026-09-16T01:29:26Z",
   "fundamentals": {
-    "marketCap": 805479510473.0,
+    "marketCap": 823093916176.0,
     "revenue": 34639000000.0,
     "revenuePeriod": "12/27/2025",
     "source": "Nasdaq summary and annual financials"
@@ -10090,6 +10090,14 @@
       "low": 480.33,
       "close": 493.41,
       "volume": 24810140
+    },
+    {
+      "date": "2026-09-15",
+      "open": 501.7,
+      "high": 513.665,
+      "low": 497.511,
+      "close": 504.2,
+      "volume": 17133990
     }
   ]
 }
