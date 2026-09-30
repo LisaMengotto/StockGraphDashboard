@@ -3,7 +3,7 @@
   "sourceSymbol": "dia",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-09-29T02:36:48Z",
+  "retrievedAt": "2026-09-30T02:12:55Z",
   "fundamentals": null,
   "prices": [
     {
@@ -10093,6 +10093,14 @@
       "low": 513.2999,
       "close": 514.02,
       "volume": 2443765
+    },
+    {
+      "date": "2026-09-29",
+      "open": 513.79,
+      "high": 514.26,
+      "low": 510.46,
+      "close": 512.88,
+      "volume": 2575014
     }
   ]
 }
