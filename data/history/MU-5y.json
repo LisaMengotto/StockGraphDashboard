@@ -3,22 +3,14 @@
   "sourceSymbol": "mu",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-10-02T02:20:42Z",
+  "retrievedAt": "2026-10-03T02:08:17Z",
   "fundamentals": {
-    "marketCap": 1239384749976.0,
+    "marketCap": 1213973404078.0,
     "revenue": 37378000000.0,
     "revenuePeriod": "8/28/2025",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-09-22",
-      "open": 73.04,
-      "high": 74.58,
-      "low": 72.64,
-      "close": 73.97,
-      "volume": 16996130
-    },
     {
       "date": "2021-09-23",
       "open": 73.61,
@@ -10106,6 +10098,14 @@
       "low": 1022.9,
       "close": 1097.39,
       "volume": 45735430
+    },
+    {
+      "date": "2026-10-02",
+      "open": 1107.345,
+      "high": 1108.0,
+      "low": 1072.01,
+      "close": 1074.89,
+      "volume": 27337510
     }
   ]
 }
