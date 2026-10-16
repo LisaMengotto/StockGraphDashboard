@@ -3,22 +3,14 @@
   "sourceSymbol": "aapl",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-10-15T01:35:53Z",
+  "retrievedAt": "2026-10-16T01:31:26Z",
   "fundamentals": {
-    "marketCap": 5005219972800.0,
+    "marketCap": 4991209560000.0,
     "revenue": 416161000000.0,
     "revenuePeriod": "9/27/2025",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-10-05",
-      "open": 139.49,
-      "high": 142.24,
-      "low": 139.36,
-      "close": 141.11,
-      "volume": 80861060
-    },
     {
       "date": "2021-10-06",
       "open": 139.47,
@@ -10106,6 +10098,14 @@
       "low": 341.72,
       "close": 342.96,
       "volume": 50061050
+    },
+    {
+      "date": "2026-10-15",
+      "open": 346.95,
+      "high": 347.85,
+      "low": 341.6,
+      "close": 342.0,
+      "volume": 39767260
     }
   ]
 }
