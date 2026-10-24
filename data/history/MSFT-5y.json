@@ -3,22 +3,14 @@
   "sourceSymbol": "msft",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-10-23T01:40:56Z",
+  "retrievedAt": "2026-10-24T01:44:33Z",
   "fundamentals": {
-    "marketCap": 3869303244450.0,
+    "marketCap": 3895235078383.0,
     "revenue": 331839000000.0,
     "revenuePeriod": "6/30/2026",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-10-13",
-      "open": 294.91,
-      "high": 297.28,
-      "low": 293.49,
-      "close": 296.31,
-      "volume": 23424030
-    },
     {
       "date": "2021-10-14",
       "open": 299.21,
