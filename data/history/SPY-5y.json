@@ -3,7 +3,7 @@
   "sourceSymbol": "spy",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-10-27T02:11:57Z",
+  "retrievedAt": "2026-10-28T02:27:18Z",
   "fundamentals": null,
   "prices": [
     {
@@ -10085,6 +10085,14 @@
       "low": 761.63,
       "close": 765.37,
       "volume": 31737800
+    },
+    {
+      "date": "2026-10-27",
+      "open": 767.34,
+      "high": 771.14,
+      "low": 765.21,
+      "close": 769.66,
+      "volume": 28631660
     }
   ]
 }
