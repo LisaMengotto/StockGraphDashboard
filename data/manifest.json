@@ -13,7 +13,9 @@
     "AMD",
     "SNPS",
     "CDNS",
+    "ASML",
     "AMAT",
+    "LRCX",
     "KLAC",
     "ONTO",
     "BRKR",
@@ -26,14 +28,5 @@
     "CRWV",
     "IT"
   ],
-  "errors": [
-    {
-      "symbol": "ASML",
-      "message": "No price history found for ASML"
-    },
-    {
-      "symbol": "LRCX",
-      "message": "No price history found for LRCX"
-    }
-  ]
+  "errors": []
 }
