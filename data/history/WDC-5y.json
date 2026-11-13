@@ -3,30 +3,14 @@
   "sourceSymbol": "wdc",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-11-10T04:41:36Z",
+  "retrievedAt": "2026-11-13T03:28:23Z",
   "fundamentals": {
-    "marketCap": 108471396891.0,
+    "marketCap": 116493144545.0,
     "revenue": 12919000000.0,
     "revenuePeriod": "7/3/2026",
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-11-01",
-      "open": 39.9332,
-      "high": 41.9624,
-      "low": 39.9179,
-      "close": 41.4877,
-      "volume": 4217727
-    },
-    {
-      "date": "2021-11-02",
-      "open": 41.6485,
-      "high": 42.3989,
-      "low": 41.3269,
-      "close": 42.1385,
-      "volume": 2994647
-    },
     {
       "date": "2021-11-03",
       "open": 42.2304,
@@ -10098,6 +10082,30 @@
       "low": 269.8722,
       "close": 289.78,
       "volume": 8417031
+    },
+    {
+      "date": "2026-11-10",
+      "open": 283.04,
+      "high": 294.95,
+      "low": 276.1644,
+      "close": 289.2,
+      "volume": 6534046
+    },
+    {
+      "date": "2026-11-11",
+      "open": 309.04,
+      "high": 319.0,
+      "low": 301.71,
+      "close": 313.31,
+      "volume": 8095698
+    },
+    {
+      "date": "2026-11-12",
+      "open": 300.98,
+      "high": 316.4062,
+      "low": 295.1005,
+      "close": 311.21,
+      "volume": 5228998
     }
   ]
 }

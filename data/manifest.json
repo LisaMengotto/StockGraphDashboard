@@ -1,110 +1,32 @@
 {
   "years": 5,
-  "symbols": [],
-  "errors": [
-    {
-      "symbol": "AAPL",
-      "message": "Could not fetch data for AAPL: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "MSFT",
-      "message": "Could not fetch data for MSFT: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "NVDA",
-      "message": "Could not fetch data for NVDA: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "SPY",
-      "message": "Could not fetch data for SPY: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "QQQ",
-      "message": "Could not fetch data for QQQ: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "DIA",
-      "message": "Could not fetch data for DIA: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "MU",
-      "message": "Could not fetch data for MU: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "SNDK",
-      "message": "Could not fetch data for SNDK: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "WDC",
-      "message": "Could not fetch data for WDC: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "AMD",
-      "message": "Could not fetch data for AMD: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "SNPS",
-      "message": "Could not fetch data for SNPS: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "CDNS",
-      "message": "Could not fetch data for CDNS: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "ASML",
-      "message": "Could not fetch data for ASML: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "AMAT",
-      "message": "Could not fetch data for AMAT: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "LRCX",
-      "message": "Could not fetch data for LRCX: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "KLAC",
-      "message": "Could not fetch data for KLAC: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "ONTO",
-      "message": "Could not fetch data for ONTO: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "BRKR",
-      "message": "Could not fetch data for BRKR: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "TMO",
-      "message": "Could not fetch data for TMO: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "NVMI",
-      "message": "Could not fetch data for NVMI: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "AMKR",
-      "message": "Could not fetch data for AMKR: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "ASX",
-      "message": "Could not fetch data for ASX: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "TSM",
-      "message": "Could not fetch data for TSM: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "INTC",
-      "message": "Could not fetch data for INTC: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "CRWV",
-      "message": "Could not fetch data for CRWV: HTTP Error 403: Forbidden"
-    },
-    {
-      "symbol": "IT",
-      "message": "Could not fetch data for IT: HTTP Error 403: Forbidden"
-    }
-  ]
+  "symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "SPY",
+    "QQQ",
+    "DIA",
+    "MU",
+    "SNDK",
+    "WDC",
+    "AMD",
+    "SNPS",
+    "CDNS",
+    "ASML",
+    "AMAT",
+    "LRCX",
+    "KLAC",
+    "ONTO",
+    "BRKR",
+    "TMO",
+    "NVMI",
+    "AMKR",
+    "ASX",
+    "TSM",
+    "INTC",
+    "CRWV",
+    "IT"
+  ],
+  "errors": []
 }
