@@ -3,7 +3,7 @@
   "sourceSymbol": "brkr",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-11-19T04:17:58Z",
+  "retrievedAt": "2026-11-20T04:05:34Z",
   "fundamentals": {
     "marketCap": 9661218075.0,
     "revenue": 3436500000.0,
@@ -11,14 +11,6 @@
     "source": "Nasdaq summary and annual financials"
   },
   "prices": [
-    {
-      "date": "2021-11-09",
-      "open": 83.62,
-      "high": 83.88,
-      "low": 82.4935,
-      "close": 82.74,
-      "volume": 313501
-    },
     {
       "date": "2021-11-10",
       "open": 81.85,
@@ -10106,6 +10098,14 @@
       "low": 61.0,
       "close": 63.26,
       "volume": 1726124
+    },
+    {
+      "date": "2026-11-19",
+      "open": 63.82,
+      "high": 65.82,
+      "low": 62.04,
+      "close": 62.1,
+      "volume": 1847608
     }
   ]
 }
