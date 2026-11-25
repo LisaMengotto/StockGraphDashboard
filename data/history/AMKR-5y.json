@@ -3,9 +3,9 @@
   "sourceSymbol": "amkr",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-11-24T06:59:25Z",
+  "retrievedAt": "2026-11-25T05:31:27Z",
   "fundamentals": {
-    "marketCap": 7493780115.0,
+    "marketCap": 7823367667.0,
     "revenue": 6707981000.0,
     "revenuePeriod": "12/31/2025",
     "source": "Nasdaq summary and annual financials"
@@ -10098,6 +10098,14 @@
       "low": 33.64,
       "close": 34.81,
       "volume": 4543251
+    },
+    {
+      "date": "2026-11-24",
+      "open": 33.505,
+      "high": 33.67,
+      "low": 31.14,
+      "close": 31.81,
+      "volume": 2839495
     }
   ]
 }
