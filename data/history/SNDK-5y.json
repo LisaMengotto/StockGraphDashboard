@@ -3,9 +3,9 @@
   "sourceSymbol": "sndk",
   "years": 5,
   "source": "Nasdaq daily historical prices",
-  "retrievedAt": "2026-11-27T05:11:36Z",
+  "retrievedAt": "2026-11-28T04:47:42Z",
   "fundamentals": {
-    "marketCap": 94265375713.0,
+    "marketCap": 109312491114.0,
     "revenue": 20248000000.0,
     "revenuePeriod": "7/3/2026",
     "source": "Nasdaq summary and annual financials"
